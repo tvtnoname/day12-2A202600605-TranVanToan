@@ -48,7 +48,7 @@ Trong file `01-localhost-vs-production/develop/app.py`, tôi đã phát hiện r
 ## Part 3: Cloud Deployment
 
 ### Exercise 3.1: Railway deployment
-- **URL**: `https://day12-agent-deployment-production.up.railway.app`
+- **URL**: `https://day12-2a202600605-tranvantoan-production.up.railway.app`
 - **Ảnh chụp màn hình**: [Link to screenshot in repo](screenshots/dashboard.png) *(Học viên tự đính kèm ảnh chụp thực tế vào thư mục screenshots/)*
 
 ---

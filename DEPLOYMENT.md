@@ -1,7 +1,7 @@
 # Deployment Information
 
 ## Public URL
-https://day12-agent-deployment-production.up.railway.app
+https://day12-2a202600605-tranvantoan-production.up.railway.app
 
 ## Nền tảng triển khai (Platform)
 Railway (hoặc Render / GCP Cloud Run)
@@ -10,19 +10,19 @@ Railway (hoặc Render / GCP Cloud Run)
 
 ### 1. Kiểm tra sức khỏe hệ thống (Health Check)
 ```bash
-curl https://day12-agent-deployment-production.up.railway.app/health
+curl https://day12-2a202600605-tranvantoan-production.up.railway.app/health
 # Kết quả mong đợi: {"status": "ok", ...}
 ```
 
 ### 2. Kiểm tra tính sẵn sàng (Readiness check)
 ```bash
-curl https://day12-agent-deployment-production.up.railway.app/ready
+curl https://day12-2a202600605-tranvantoan-production.up.railway.app/ready
 # Kết quả mong đợi: {"ready": true}
 ```
 
 ### 3. Kiểm tra yêu cầu xác thực (Authentication Required)
 ```bash
-curl -X POST https://day12-agent-deployment-production.up.railway.app/ask \
+curl -X POST https://day12-2a202600605-tranvantoan-production.up.railway.app/ask \
   -H "Content-Type: application/json" \
   -d '{"question": "Hello"}'
 # Kết quả mong đợi: 401 Unauthorized (Do thiếu X-API-Key)
@@ -30,7 +30,7 @@ curl -X POST https://day12-agent-deployment-production.up.railway.app/ask \
 
 ### 4. Gửi câu hỏi hợp lệ (API Test with authentication)
 ```bash
-curl -X POST https://day12-agent-deployment-production.up.railway.app/ask \
+curl -X POST https://day12-2a202600605-tranvantoan-production.up.railway.app/ask \
   -H "X-API-Key: dev-key-change-me" \
   -H "Content-Type: application/json" \
   -d '{"question": "Hello"}'
