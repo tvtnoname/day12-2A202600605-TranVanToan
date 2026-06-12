@@ -80,6 +80,14 @@ def check_budget(user_id: str, estimated_cost: float = 0.0) -> None:
 *Vấn đề*: Khi thiết lập Root Directory trên Railway là `/06-lab-complete`, build context của Docker chỉ giới hạn trong thư mục này. Lệnh `COPY utils/ ./utils/` trong Dockerfile gặp lỗi `utils not found` do thư mục này ban đầu nằm ở ngoài gốc dự án.
 *Giải pháp*: Thực hiện sao chép toàn bộ thư mục `utils/` vào trong thư mục con `06-lab-complete/utils/`. Điều này giúp Docker builder của Railway tìm thấy thư mục phụ trợ và đóng gói thành công mà không gây ảnh hưởng đến việc phân giải import (`PYTHONPATH=/app`).
 
+#### 2. Sửa lỗi `MutableHeaders.pop` trong middleware
+*Vấn đề*: Trong hàm `request_middleware`, việc sử dụng `response.headers.pop("server", None)` để xóa header `"server"` gây ra lỗi `AttributeError: 'MutableHeaders' object has no attribute 'pop'` trong các phiên bản mới của FastAPI/Starlette.
+*Giải pháp*: Đổi sang sử dụng phương thức xóa khóa chuẩn bằng từ khóa `del` như sau:
+```python
+if "server" in response.headers:
+    del response.headers["server"]
+```
+
 ---
 
 ### C. Tái Cấu Trúc Trình Xử Lý Chính FastAPI (`app/main.py`)
